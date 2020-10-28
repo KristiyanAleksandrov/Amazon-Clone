@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../css/CheckoutProduct.css'
 import { useStateValue } from '../StateProvider';
 
@@ -15,7 +16,9 @@ function CheckoutProduct({ product, count }) {
 
     return (
         <div className="checkoutProduct">
+            <Link to={`/details/${product.id}`}>
             <img className="checkoutProduct__image" src={product.image} />
+            </Link>
             <div className="checkoutProduct__info">
                 <span className="checkoutProduct__title">{product.title}</span>
                 <p className="checkoutProduct__price">

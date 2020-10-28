@@ -5,6 +5,10 @@
     margin-bottom: 10px;
 }
 
+.details {
+    background-color: white; 
+}
+
 .details__backToProducts {
     color: #555;
     text-decoration: none;
@@ -43,6 +47,11 @@
 
 .product__details__info__rating {
     display: flex;
+}
+
+.product__details__info__price {
+    color: #B12704;
+    font-size: 18px;
 }
 
 /* krai */
