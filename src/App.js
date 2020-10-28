@@ -1,25 +1,68 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Header from './components/Header'
+import Home from './components/Home'
+import Checkout from './components/Checkout'
+import Login from './components/Login'
+import UnderHeader from './components/UnderHeader'
+import Details from './components/Details';
+import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 
 function App() {
+  const [, dispatch] = useStateValue();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser
+        })
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null
+        })
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <h1>Register Page</h1>
+        </Route>
+        <Route path="/details/:id">
+          <Header />
+          <UnderHeader />
+          <Details />
+        </Route>
+        <Route path="/checkout">
+          <Header />
+          <UnderHeader />
+          <Checkout />
+        </Route>
+        <Route path="/">
+          <Header />
+          <UnderHeader />
+          <Home />
+        </Route>
+      </Switch>
+    </Router >
   );
 }
 

@@ -1,0 +1,82 @@
+.notification {
+    /* display: none; */
+    position: relative;
+    display: inline-flex;
+    width: 95%;
+    height: 70px;
+    margin-left: 35px;
+}
+
+.notification__addToBasket {
+    align-items: center;
+    white-space: nowrap;
+    display: inline-flex;
+    border: 0.1mm solid;
+    background-color: #fafafa;
+}
+
+.notification__addToBasket__checkIcon {
+    color: green;
+    margin: 12px;
+    padding-right: 7px;
+}
+
+.notification__addToBasket > img {
+    width: 58px;
+    height: 58px;
+    border: 0.1mm solid;
+    border-color: green;
+}
+
+.notification__addToBasket > h1 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 15px;
+    color: green;
+}
+
+.notification__basketSubtotal {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 0.1mm solid;
+    width: 100%;
+    background-color: #E8E8E8;
+    font-size: 17px;
+}
+
+.notification__basketSubtotal__subtotal {
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.notification__basketSubtotal__subtotal__total {
+    margin-left: 5px;
+    color: #B12704;
+    font-weight: 700;
+}
+
+.notification__basketSubtotal__buttons {
+    float: right;
+    margin-left:1em;
+    margin-right:1em;
+    margin-top:1em;
+    margin-bottom:1em;
+}
+
+.notification__basketSubtotal__close{
+   position:absolute;
+   top:0;
+   right:0;
+}
+
+/* .notification__basketSubtotal__buttons > button {
+    text-decoration: none;
+    height: 30px;
+    margin-right: 7px;
+    background-color: #f0c14b;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+}
+ */

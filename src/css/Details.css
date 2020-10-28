@@ -1,0 +1,105 @@
+.details > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.details__backToProducts {
+    color: #555;
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.product__details {
+    display: flex;
+    margin-top: 15px;
+}
+
+/* image */
+
+.product__details__image {
+    width: 500px;
+    height: 600px;
+    background-size: contain;
+    margin-left: 20px;
+}
+
+.product__details__image > img{
+    width: 100%!important;
+    height: 100%!important;
+}
+
+/* sreda */
+
+.product__details__info {
+    margin-left: 25px;
+    line-height: 32px;
+    font-size: 19px;
+    font-weight: 500;
+    max-width: 500px;
+}
+
+.product__details__info__rating {
+    display: flex;
+}
+
+/* krai */
+
+.product__details__box {
+    position: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    padding: 10px 14px!important;
+    border: 1px solid;
+    border-radius: 5px;
+    /* box-sizing: border-box; */
+    height: 100%;
+    line-height: 20px;
+}
+
+.product__details__box__price {
+    color: #B12704;
+    font-size: 18px;
+}
+
+.product__details__box__delivery {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.product__details__box__inStock {
+    color: #007600;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.product__details__box__select {
+    margin-left: "5px"
+}
+
+.product__details__box > div {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.product__details__box__shoppingCart {
+    margin-left: 4px;
+    margin-top: 13px;
+    z-index: 20;
+    position: absolute;
+    color: white;
+    background-color: black;
+}
+
+.product__details__box > div > button {
+    height: 30px;
+    width: 100%;
+    background-color: #f0c14b;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+}
