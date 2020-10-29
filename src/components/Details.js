@@ -57,7 +57,7 @@ function Details() {
                     <p className="product__details__box__delivery">Fastest delivery: <b>Tuesday, Oct 20</b></p>
                     <p className="product__details__box__inStock">In stock.</p>
                     <span>
-                        <label for="quantity">Quantity:</label>
+                        <label for="quantity" className="quant">Quantity:</label>
                         <select name="quantity" className="product__details__box__select" autocomplete="off">
                             {
                                 Array.from({ length: 30 }, (_, i) => i + 1).map((x) => (<option value={x}>{x}</option>))

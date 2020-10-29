@@ -24,8 +24,8 @@
 /* image */
 
 .product__details__image {
-    width: 500px;
-    height: 600px;
+    width: 700px;
+    height: auto;
     background-size: contain;
     margin-left: 20px;
 }
@@ -84,8 +84,8 @@
     line-height: 24px;
 }
 
-.product__details__box__select {
-    margin-left: "5px"
+.quant{
+    margin-right: 6px;
 }
 
 .product__details__box > div {

@@ -7,7 +7,7 @@ export const getBasketTotal = (basket) => {
     return Object.values(basket)?.reduce((amount, item) => amount + item.product.price * item.count, 0);
 }
 export const productsCount = (basket) => {
-    return Object.values(basket)?.reduce((amount, item) => amount + item.count,0);
+    return Object.values(basket)?.reduce((amount, item) => amount + item.count, 0);
 }
 
 function reducer(state, action) {
@@ -25,10 +25,16 @@ function reducer(state, action) {
             else {
                 newwBasket[action.item.id].count += action.item.count;
             }
-            console.log(newwBasket);
             return {
                 ...state,
                 basket: newwBasket
+            };
+        case 'CHANGE_PRODUCT_COUNT':
+            let changeProductCountBasket = state.basket;
+            changeProductCountBasket[action.id].count = action.count;
+            return {
+                ...state,
+                basket: changeProductCountBasket
             };
         case 'REMOVE_FROM_BASKET':
             let newBasket = state.basket;
@@ -56,6 +62,7 @@ function reducer(state, action) {
         default:
             return state;
     }
+    
 }
 
 export default reducer;

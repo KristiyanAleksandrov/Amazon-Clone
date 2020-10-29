@@ -1,6 +1,7 @@
 .notification {
-    /* display: none; */
-    position: relative;
+    position: sticky;
+    top: 5em;
+    z-index: 120;
     display: inline-flex;
     width: 95%;
     height: 70px;
