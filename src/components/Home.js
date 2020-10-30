@@ -28,6 +28,9 @@ function Home() {
     const closeNotification = () => {
         setDisplay(false)
     }
+    const changeSearch = (search) => {
+        
+    }
     useEffect(() => {
         db.ref('/Products/').once('value').then(snapshot => {
             setProducts(snapshot.val().slice(1));

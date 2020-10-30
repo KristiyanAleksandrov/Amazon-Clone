@@ -7,15 +7,16 @@ class UnderHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            country: ''
+            country: []
         };
     }
 
     componentDidMount() {
-        fetch('https://extreme-ip-lookup.com/json/')
+        fetch('https://geolocation-db.com/json/')
             .then(res => res.json())
             .then(response => {
-                this.setState({ country: `${response.country}, ${response.city}` });
+                console.log(response);
+                this.setState({ country: [response.country_name, response.city] });
             });
     }
 
@@ -26,7 +27,7 @@ class UnderHeader extends React.Component {
                     <LocationOnIcon style={{ color: 'white' }} />
                     <div className='underHeader__deliver__info'>
                         <span className="underHeader__deliver__info__one">Deliver to </span>
-                        <span className="underHeader__deliver__info__two">{this.state.country}</span>
+                        <span className="underHeader__deliver__info__two">{this.state.country ? `${this.state.country[0]}, ${this.state.country[1]}` : null}</span>
                     </div>
                 </div>
                 <div className="underHeader__nav">
