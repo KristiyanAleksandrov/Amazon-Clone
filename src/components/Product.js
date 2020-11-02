@@ -42,7 +42,6 @@ function Product({ id, title, price, image, rating, action }) {
                 <img className="product__image" src={image} />
             </Link>
             <Button onClick={addToBasket}>Add to Basket</Button>
-            {/* {notification()} */}
         </div>
     )
 }

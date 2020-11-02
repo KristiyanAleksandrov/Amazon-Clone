@@ -4,18 +4,37 @@ import { Link, useParams } from 'react-router-dom';
 import { db } from '../firebase'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useStateValue } from '../StateProvider';
+import AddProductNotification from '../components/AddProductNotification'
+import { productsCount, getBasketTotal } from '../reducer'
 
 function Details() {
     const [product, setProduct] = useState({});
+    const [display, setDisplay] = useState(false);
+    const [notification, setNotification] = useState({});
+    const [{ basket }, dispatch] = useStateValue();
+    const { title, price, image, rating } = product;
     let { id } = useParams();
+
+    const handler = () => {
+        setDisplay(true)
+        setNotification(
+            {
+                id,
+                title,
+                price,
+                image,
+                rating
+            })
+    }
+    const closeNotification = () => {
+        setDisplay(false)
+    }
 
     useEffect(() => {
         db.ref('/Products/' + id).once('value').then(snapshot => {
             setProduct(snapshot.val());
         });
     })
-    const [{ basket }, dispatch] = useStateValue();
-    const { title, price, image, rating } = product;
 
     const addToBasket = () => {
         dispatch({
@@ -31,13 +50,16 @@ function Details() {
                 },
                 count: Number(document.getElementsByClassName("product__details__box__select")[0].value)
             },
-        }
-        )
+        })
+        handler();
     }
+
     return (
         <div className='details'>
             <img src="https://images-eu.ssl-images-amazon.com/images/G/02/B2B/Merch/ILM/ILM_650x45_VAT-message-3_UK._CB456689785_.jpg"></img>
             <Link to="/" className="details__backToProducts">{"<  "}Back to products</Link>
+            {display ? <AddProductNotification notification={notification} itemsCount={productsCount(basket)}
+                basketTotal={getBasketTotal(basket)} closeNotification={closeNotification} /> : null}
             <div className="product__details">
                 <div className="product__details__image" >
                     <img src={product.image}></img>
