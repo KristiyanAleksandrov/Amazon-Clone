@@ -11,7 +11,12 @@ function AddProductNotification({ notification, itemsCount, basketTotal, closeNo
             <div className="notification__addToBasket">
                 <CheckIcon className="notification__addToBasket__checkIcon" />
                 <img src={notification.image} alt="" />
-                <h1>Added to Basket</h1>
+                <div>
+                    <h1>Added to Basket</h1>
+                    {
+                        notification.itemsCount && notification.itemsCount != 1 ? <span>({notification.itemsCount} items)</span> : null
+                    }
+                </div>
             </div>
             <div className="notification__basketSubtotal">
                 <div className="notification__basketSubtotal__subtotal">

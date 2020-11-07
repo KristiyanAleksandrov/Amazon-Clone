@@ -23,7 +23,8 @@ function Details() {
                 title,
                 price,
                 image,
-                rating
+                rating,
+                itemsCount: Number(document.getElementsByClassName("product__details__box__select")[0].value)
             })
     }
     const closeNotification = () => {
